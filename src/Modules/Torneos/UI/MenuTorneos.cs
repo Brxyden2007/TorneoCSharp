@@ -36,7 +36,8 @@ public class MenuTorneos
 
             switch (opt)
             {
-                case 1:
+                case 1: // Done
+                    Console.Clear();
                     Console.Write("Nombre de Torneo: ");
                     string? nombre = Console.ReadLine();
                     Console.Write("Fecha de Inicio (yyyy-MM-dd): ");
@@ -47,6 +48,7 @@ public class MenuTorneos
                     break;
 
                 case 2:
+                    Console.Clear();
                     Console.Write("Ingrese el ID del torneo a buscar: ");
                     int id = int.Parse(Console.ReadLine()!);
                     Torneo? tournament = await service.ObtenerTorneoPorIdAsync(id);
@@ -57,12 +59,14 @@ public class MenuTorneos
                     break;
 
                 case 3:
+                    Console.Clear();
                     Console.Write("ID del Torneo a Eliminar: ");
                     int idDelTor = int.Parse(Console.ReadLine()!);
                     await service.EliminarTorneo(idDelTor);
                     Console.WriteLine("Torneo Eliminado.");
                     break;
                 case 4:
+                    Console.Clear();
                     Console.Write("ID de Torneo a Actualizar: ");
                     int idUpTor = int.Parse(Console.ReadLine()!);
                     Console.Write("Nuevo Nombre: ");
