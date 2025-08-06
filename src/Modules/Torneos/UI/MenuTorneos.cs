@@ -37,9 +37,13 @@ public class MenuTorneos
             switch (opt)
             {
                 case 1:
-                    Console.Write("Nombre de Torneo ");
+                    Console.Write("Nombre de Torneo: ");
                     string? nombre = Console.ReadLine();
-                    await service.RegistrarTorneoAsync(nombre!);
+                    Console.Write("Fecha de Inicio (yyyy-MM-dd): ");
+                    DateTime fechaInicio = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Fecha de Fin (yyyy-MM-dd): ");
+                    DateTime fechaFin = DateTime.Parse(Console.ReadLine()!);
+                    await service.RegistrarTorneoAsync(nombre!, fechaInicio, fechaFin);
                     break;
 
                 case 2:
@@ -47,23 +51,27 @@ public class MenuTorneos
                     int id = int.Parse(Console.ReadLine()!);
                     Torneo? tournament = await service.ObtenerTorneoPorIdAsync(id);
                     if (tournament != null)
-                        Console.WriteLine($"Nombre: {tournament.Nombre}");
+                        Console.WriteLine($"Nombre: {tournament.Nombre}\nInicio: {tournament.FechaInicio:yyyy-MM-dd}\nFin: {tournament.FechaFin:yyyy-MM-dd}");
                     else
                         Console.WriteLine("Torneo No Encontrado");
                     break;
 
                 case 3:
-                    Console.Write("ID del Torneo a Eliminar ");
+                    Console.Write("ID del Torneo a Eliminar: ");
                     int idDelTor = int.Parse(Console.ReadLine()!);
                     await service.EliminarTorneo(idDelTor);
                     Console.WriteLine("Torneo Eliminado.");
                     break;
                 case 4:
-                    Console.Write("ID de Torneo a Actualizar ");
+                    Console.Write("ID de Torneo a Actualizar: ");
                     int idUpTor = int.Parse(Console.ReadLine()!);
                     Console.Write("Nuevo Nombre: ");
                     string? nuevoNombre = Console.ReadLine();
-                    await service.ActualizarTorneo(idUpTor, nuevoNombre!);
+                    Console.Write("Nueva Fecha de Inicio (yyyy-MM-dd): ");
+                    DateTime nuevaFechaInicio = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Nueva Fecha de Fin (yyyy-MM-dd): ");
+                    DateTime nuevaFechaFin = DateTime.Parse(Console.ReadLine()!);
+                    await service.ActualizarTorneo(idUpTor, nuevoNombre!, nuevaFechaInicio, nuevaFechaFin);
                     break;
                 case 5:
                     salir = true;

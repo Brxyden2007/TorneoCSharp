@@ -20,5 +20,13 @@ public class TorneoConfiguration : IEntityTypeConfiguration<Torneo>
         builder.Property(t => t.Nombre)
                 .IsRequired()
                 .HasMaxLength(100);
+
+        builder.Property(t => t.FechaInicio)
+                .IsRequired()
+                .HasColumnType("date");
+
+        builder.Property(t => t.FechaFin)
+                .IsRequired()
+                .HasColumnType("date");
     }    
 }

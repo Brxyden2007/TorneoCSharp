@@ -21,7 +21,7 @@ public class TorneoService
         return _repo.GetAllAsync();
     }
 
-    public async Task RegistrarTorneoAsync(string nombre)
+    public async Task RegistrarTorneoAsync(string nombre, DateTime fechainicio, DateTime fechafin)
     {
         var existentes = await _repo.GetAllAsync();
         if (existentes.Any(t => t.Nombre == nombre))
@@ -29,19 +29,24 @@ public class TorneoService
         var torneo = new Torneo
         {
             Nombre = nombre,
+            FechaInicio = fechainicio,
+            FechaFin = fechafin
         };
 
         _repo.Add(torneo);
         _repo.Update(torneo);
     }
 
-    public async Task ActualizarTorneo(int id, string nuevoNombre)
+    public async Task ActualizarTorneo(int id, string nuevoNombre, DateTime nuevaFechaInicio, DateTime nuevaFechaFin)
     {
         var torneo = await _repo.GetByIdAsync(id);
 
         if (torneo == null)
             throw new Exception($"Torneo con ID {id} no encontrado.");
+
         torneo.Nombre = nuevoNombre;
+        torneo.FechaInicio = nuevaFechaInicio;
+        torneo.FechaFin = nuevaFechaFin;
 
         _repo.Update(torneo);
         await _repo.SaveAsync();
@@ -60,4 +65,4 @@ public class TorneoService
     {
         return await _repo.GetByIdAsync(id);
     }
-}   
+}
