@@ -26,39 +26,7 @@ namespace TorneoCSharp.src.Shared.Configurations
 
             builder.Property(e => e.Pais)
                 .IsRequired()
-                .HasMaxLength(50);
-
-            builder.Property(e => e.DirectorTecnico)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.AsistenteTecnico)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.EntrenadorPortero)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.PreparadorFisico)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.MedicoEquipo)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.Fisioterapeuta)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.Kinesologo)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(e => e.Nutricionista)
-                .IsRequired()
-                .HasMaxLength(100);    
+                .HasMaxLength(50);  
         }
     }
 }

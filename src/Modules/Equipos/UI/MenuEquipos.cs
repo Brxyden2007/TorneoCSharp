@@ -66,20 +66,6 @@ public MenuEquipos(AppDbContext context)
                     break;
                 case "3":
                     Console.Clear();
-                    Console.WriteLine("Registrar Cuerpo Técnico seleccionado.");
-                    Console.Write("Ingrese el nombre del Director Técnico: ");
-                    string directorTecnico = Console.ReadLine()!;
-                    Console.Write("Ingrese el nombre del Asistente Técnico: ");
-                    string asistenteTecnico = Console.ReadLine()!;
-                    Console.Write("Ingrese el nombre del Preparador Físico: ");
-                    string preparadorFisico = Console.ReadLine()!;
-                    Console.Write("Ingrese el nombre del Entrenador de Porteros: ");
-                    string entrenadorPortero = Console.ReadLine()!;
-                    Console.Write("Ingrese el ID del equipo: ");
-                    int idEquipoCuerpoTecnico = int.Parse(Console.ReadLine()!);
-                    await service.RegistrarCuerpoTecnicoAsync(directorTecnico, asistenteTecnico, preparadorFisico, entrenadorPortero, idEquipoCuerpoTecnico);
-                    Console.WriteLine($"Cuerpo Técnico registrado para el equipo con ID {idEquipoCuerpoTecnico}.");
-
                     break;
                 case "4":
 

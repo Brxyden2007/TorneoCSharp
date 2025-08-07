@@ -3,9 +3,14 @@ using LigaTorneo.src.Modules.Torneos.Application.Services;
 using LigaTorneo.src.Modules.Torneos.UI;
 using LigaTorneo.src.Shared.Helpers;
 using TorneoCSharp.src.Modules.Equipos.UI;
+using TorneoCSharp.src.Shared.Helpers;
 
 var context = DbContextFactory.Create();
-
+string connStr = "server=localhost;database=torneodb;user=root;password=BRAYDEN714bRayden714;";
+var dbInit = new DatabaseInitializer(connStr);
+        dbInit.CreateDatabase();
+        dbInit.DropTablas();
+        dbInit.CrearTablas();
 bool salir = false;
 while (!salir)
 {   
