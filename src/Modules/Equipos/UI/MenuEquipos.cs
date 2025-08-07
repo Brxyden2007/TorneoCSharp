@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LigaTorneo.src.Modules.Torneos.Domain.Entities;
 using LigaTorneo.src.Shared.Context;
 using TorneoCSharp.src.Modules.Equipos.Application.Services;
 using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
@@ -68,24 +69,62 @@ public MenuEquipos(AppDbContext context)
                     Console.Clear();
                     break;
                 case "4":
-
-                    // Lógica para inscripción torneo
+                    Console.Clear();
                     break;
                 case "5":
-
-                    // Lógica para notificación de transferencia
+                /*
+                    Console.Clear();
+                    Console.Write("Ingrese el ID del equipo a inscribir en el torneo: ");
+                    int idEquipoTorneo = int.Parse(Console.ReadLine()!);
+                    Console.Write("Ingrese el ID del torneo: ");
+                    int idTorneo = int.Parse(Console.ReadLine()!);
+                    Torneo? torneo = await _context.Torneos.FindAsync(idTorneo);
+                    if (torneo != null)
+                    {
+                        Equipo? equipoTorneo = await service.ObtenerEquipoPorIdAsync(idEquipoTorneo);
+                        if (equipoTorneo != null)
+                        {
+                            /// torneo.Equipos.Add(equipoTorneo);
+                            _context.Torneos.Update(torneo);
+                            await _context.SaveChangesAsync();
+                            Console.WriteLine($"Equipo '{equipoTorneo.Nombre}' inscrito en el torneo '{torneo.Nombre}' correctamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Equipo no encontrado.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Torneo no encontrado.");
+                    }
+                    */
+                    // "Funciona" (Solo es Visual, deduzco que tendre que acudir a una tabla intermedia para relacionar los equipos con los torneos)
                     break;
                 case "6":
-
-                    // Lógica para salir de torneo
-                    break;
+                /*
+                    Console.Clear();
+                    Console.WriteLine("Notificación de Transferencia seleccionada.");
+                    Console.Write("Ingrese el ID del equipo: ");
+                    int idEquipoTransferencia = int.Parse(Console.ReadLine()!);
+                    Console.Write("Ingrese el ID del jugador: ");
+                    int idJugador = int.Parse(Console.ReadLine()!);
+                    Console.WriteLine($"Notificación de transferencia para el equipo con ID {idEquipoTransferencia} y jugador con ID {idJugador} registrada correctamente.");
+                    */ break;
+                    // "Funciona" (Solo es Visual, deduzco que tendre que acudir a una tabla intermedia para relacionar los equipos con los jugadores)
                 case "7":
-
-                    // Lógica para salir al menú principal
-                    break;
+                /*
+                    Console.Clear();
+                    Console.Write("Ingrese el ID del equipo a salir del torneo: ");
+                    int idEquipoSalir = int.Parse(Console.ReadLine()!);
+                    await service.EliminarEquipoAsync(idEquipoSalir);
+                    Console.WriteLine($"Equipo con ID {idEquipoSalir} eliminado del torneo correctamente.");
+                    */ break; 
+                    // "Funciona" (Solo es Visual, deduzco que tendre que acudir a una tabla intermedia para relacionar los equipos con los torneos lo mismo que el case 5)
                 case "8":
                     Console.Clear();
                     Console.WriteLine("Saliendo al menú principal...");
+                    salir = true;
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Intente nuevamente.");
