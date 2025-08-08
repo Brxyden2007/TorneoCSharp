@@ -21,7 +21,7 @@ namespace TorneoCSharp.src.Modules.Jugadores.Application.Services
         return _repo.GetAllJugadoresAsync();
     }
 
-    public async Task RegistrarJugadorAsync(string nombre, string apellido, int edad, string pais, DateTime fechaNacimiento)
+    public async Task RegistrarJugadorAsync(string nombre, string apellido, int edad, string pais, string posicion, int dorsal)
     {
         var existentes = await _repo.GetAllJugadoresAsync();
         if (existentes.Any(j => j.Nombre == nombre))
@@ -33,14 +33,15 @@ namespace TorneoCSharp.src.Modules.Jugadores.Application.Services
             Apellido = apellido,
             Edad = edad,
             Pais = pais,
-            FechaNacimiento = fechaNacimiento,
+            Posicion = posicion,
+            Dorsal = dorsal,
         };
 
         _repo.Add(jugador);
         await _repo.SaveAsync();
     }
 
-    public async Task ActualizarJugadorAsync(int id, string nuevoNombre, string nuevoApellido, int nuevaEdad, string nuevoPais, DateTime nuevaFechaNacimiento)
+    public async Task ActualizarJugadorAsync(int id, string nuevoNombre, string nuevoApellido, int nuevaEdad, string nuevoPais, string nuevaPosicion, int nuevaDorsal)
     {
         var jugador = await _repo.GetByIdAsync(id);
         if (jugador == null)
@@ -50,7 +51,8 @@ namespace TorneoCSharp.src.Modules.Jugadores.Application.Services
         jugador.Apellido = nuevoApellido;
         jugador.Edad = nuevaEdad;
         jugador.Pais = nuevoPais;
-        jugador.FechaNacimiento = nuevaFechaNacimiento;
+        jugador.Posicion = nuevaPosicion;
+        jugador.Dorsal = nuevaDorsal;
 
         _repo.Update(jugador);
         await _repo.SaveAsync();
@@ -70,10 +72,5 @@ namespace TorneoCSharp.src.Modules.Jugadores.Application.Services
     {
         return _repo.GetByIdAsync(id);
     }
-
-        internal async Task RegistrarJugadorAsync(string v1, string v2, string v3, DateTime dateTime, int v4)
-        {
-            await Task.CompletedTask;
-        }
     }
 }

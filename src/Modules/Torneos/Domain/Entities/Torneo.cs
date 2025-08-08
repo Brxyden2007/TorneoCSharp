@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 
 namespace LigaTorneo.src.Modules.Torneos.Domain.Entities;
 

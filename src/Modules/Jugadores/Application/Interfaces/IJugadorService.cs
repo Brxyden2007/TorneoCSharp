@@ -8,8 +8,8 @@ namespace TorneoCSharp.src.Modules.Jugadores.Application.Interfaces
 {
     public interface IJugadorService
     {
-        Task RegistrarJugadorAsync(string nombre, string paisEquipo, DateTime fechaCreacion);
-        Task ActualizarJugadorAsync(int id, string nuevoNombre, DateTime fechaCreacion, string paisEquipo);
+        Task RegistrarJugadorAsync(string nombre, string paisEquipo, string apellido, int edad, string posicion, int dorsal, DateTime fechaNacimiento);
+        Task ActualizarJugadorAsync(int id, string nuevoNombre, string nuevoApellido, int nuevaEdad, string nuevoPais, string nuevaPosicion, int nuevaDorsal);
         Task EliminarJugadorAsync(int id);
         Task<Jugador?> ObtenerJugadorPorIdAsync(int id);
     }

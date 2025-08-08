@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using LigaTorneo.src.Modules.Torneos.Domain.Entities;
 using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 using TorneoCSharp.src.Modules.Jugadores.Domain.Entities;
-
 namespace LigaTorneo.src.Shared.Context;
 
 public class AppDbContext : DbContext

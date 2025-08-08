@@ -20,13 +20,13 @@ namespace TorneoCSharp.src.Shared.Configurations
                 .IsRequired()
                 .HasMaxLength(100);
 
+            builder.Property(e => e.Pais)
+                .IsRequired()
+                .HasMaxLength(50);
+
             builder.Property(e => e.FechaCreacion)
                 .IsRequired()
                 .HasColumnType("date");
-
-            builder.Property(e => e.Pais)
-                .IsRequired()
-                .HasMaxLength(50);  
         }
     }
 }

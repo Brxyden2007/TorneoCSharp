@@ -7,6 +7,7 @@ using LigaTorneo.src.Modules.Torneos.Domain.Entities;
 using LigaTorneo.src.Modules.Torneos.Application.Services;
 using LigaTorneo.src.Shared.Context;
 using LigaTorneo.src.Modules.Torneos.Infrastructure.Repositories;
+using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 namespace LigaTorneo.src.Modules.Torneos.UI;
 
 public class MenuTorneos
@@ -30,7 +31,8 @@ public class MenuTorneos
             Console.WriteLine("2. Buscar Torneo");
             Console.WriteLine("3. Eliminar Torneo");
             Console.WriteLine("4. Actualizar Torneo");
-            Console.WriteLine("5. Regresar Main Menu");
+            Console.WriteLine("5. Mostrar Equipos en Torneo (Pendiente)");
+            Console.WriteLine("6. Regresar Main Menu");
             Console.Write("Opcion: ");
             int opt = int.Parse(Console.ReadLine()!);
 
@@ -78,6 +80,29 @@ public class MenuTorneos
                     await service.ActualizarTorneo(idUpTor, nuevoNombre!, nuevaFechaInicio, nuevaFechaFin);
                     break;
                 case 5:
+                    Console.Clear();
+                     /*
+                    Console.Write("ID del Torneo para mostrar Equipos: ");
+                    int idTorneo = int.Parse(Console.ReadLine()!);
+                    var torneo = await service.ObtenerTorneoPorIdAsync(idTorneo);
+                    if (torneo != null)
+                    {
+                        Console.WriteLine($"Equipos en el Torneo {torneo.Nombre}:");
+                        foreach (var equipo in torneo.Equipos)
+                        {
+                            Console.WriteLine($"- {equipo.Nombre} (Pais: {equipo.Pais})");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Torneo No Encontrado");
+                    }
+                    Console.WriteLine("Funcionalidad pendiente de implementación.");
+                    Console.WriteLine("Presione cualquier tecla para continuar...");
+                    Console.ReadKey();
+                    Console.Clear();*/
+                    break;    
+                case 6:
                     salir = true;
                     break;
             } 

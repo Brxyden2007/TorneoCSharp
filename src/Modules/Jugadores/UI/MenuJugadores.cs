@@ -6,6 +6,7 @@ using LigaTorneo.src.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using TorneoCSharp.src.Modules.Jugadores.Application.Interfaces;
 using TorneoCSharp.src.Modules.Jugadores.Application.Services;
+using TorneoCSharp.src.Modules.Jugadores.Domain.Entities;
 using TorneoCSharp.src.Modules.Jugadores.Infrastructure.Repositories;
 
 namespace TorneoCSharp.src.Modules.Jugadores.UI;
@@ -38,24 +39,79 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
                 {
                     case "1":
                         Console.Clear();
-                        Console.WriteLine("Registrar Jugador seleccionado.");
-                        await service.RegistrarJugadorAsync("Lionel Messi", "Delantero", "Argentina", new DateTime(1987, 6, 24), 34);
-                        Console.WriteLine("Jugador registrado correctamente.");
-
-                        break;
+                        Console.Write("Ingrese el nombre del jugador: ");
+                        string nombre = Console.ReadLine()!;
+                        Console.Write("Ingrese el apellido del jugador: ");
+                        string apellido = Console.ReadLine()!;
+                        Console.Write("Ingrese la edad del jugador: ");
+                        int edad = int.Parse(Console.ReadLine()!);
+                        Console.Write("Ingrese el país del jugador: ");
+                        string pais = Console.ReadLine()!;
+                        Console.Write("Ingrese la posición del jugador: ");
+                        string posicion = Console.ReadLine()!;
+                        Console.Write("Ingrese el dorsal del jugador: ");
+                        int dorsal = int.Parse(Console.ReadLine()!);
+                        await service.RegistrarJugadorAsync(nombre, apellido, edad, pais, posicion, dorsal);
+                        Console.WriteLine("Jugador registrado exitosamente.");
+                    break;
                     case "2":
                         Console.Clear();
                         Console.WriteLine("Buscar Jugador seleccionado.");
-
+                        Console.Write("Ingrese el ID del jugador a buscar: ");
+                        int id = int.Parse(Console.ReadLine()!);
+                        Jugador? jugador = await service.ObtenerJugadorPorIdAsync(id);
+                        if (jugador != null)
+                        {
+                            Console.WriteLine($"ID: {jugador.Id}, Nombre: {jugador.Nombre}, Apellido: {jugador.Apellido}, Edad: {jugador.Edad}, País: {jugador.Pais}, Posición: {jugador.Posicion}, Dorsal: {jugador.Dorsal}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Jugador no encontrado.");
+                        }
                         break;
                     case "3":
                         Console.Clear();
                         Console.WriteLine("Editar Jugador seleccionado.");
-
+                        Console.Write("Ingrese el ID del jugador a editar: ");
+                        int idEditar = int.Parse(Console.ReadLine()!);
+                        Jugador? jugadorEditar = await service.ObtenerJugadorPorIdAsync(idEditar);
+                        if (jugadorEditar != null)
+                        {
+                            Console.Write("Ingrese el nuevo nombre del jugador: ");
+                            string nuevoNombre = Console.ReadLine()!;
+                            Console.Write("Ingrese el nuevo apellido del jugador: ");
+                            string nuevoApellido = Console.ReadLine()!;
+                            Console.Write("Ingrese la nueva edad del jugador: ");
+                            int nuevaEdad = int.Parse(Console.ReadLine()!);
+                            Console.Write("Ingrese el nuevo país del jugador: ");
+                            string nuevoPais = Console.ReadLine()!;
+                            Console.Write("Ingrese la nueva posición del jugador: ");
+                            string nuevaPosicion = Console.ReadLine()!;
+                            Console.Write("Ingrese el nuevo dorsal del jugador: ");
+                            int nuevoDorsal = int.Parse(Console.ReadLine()!);
+                            await service.ActualizarJugadorAsync(idEditar, nuevoNombre, nuevoApellido, nuevaEdad, nuevoPais, nuevaPosicion, nuevoDorsal);
+                            Console.WriteLine("Jugador actualizado exitosamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Jugador no encontrado.");
+                        }
                         break;
                     case "4":
                         Console.Clear();
                         Console.WriteLine("Eliminar Jugador seleccionado.");
+                        Console.Write("Ingrese el ID del jugador a eliminar: ");
+                        int idEliminar = int.Parse(Console.ReadLine()!);
+                        Jugador? jugadorEliminar = await service.ObtenerJugadorPorIdAsync(idEliminar);
+                        if (jugadorEliminar != null)
+                        {
+                            await service.EliminarJugadorAsync(idEliminar);
+                            Console.WriteLine("Jugador eliminado exitosamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Jugador no encontrado.");
+                        }
                         break;
                     case "5":
                         Console.Clear();

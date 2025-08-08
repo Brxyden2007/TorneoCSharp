@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
+using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 
 namespace TorneoCSharp.src.Modules.Jugadores.Domain.Entities
 {
@@ -12,9 +14,8 @@ namespace TorneoCSharp.src.Modules.Jugadores.Domain.Entities
         public string Apellido { get; set; } = string.Empty;
         public int Edad { get; set; }
         public string Pais { get; set; } = string.Empty;
-        public DateTime FechaNacimiento { get; set; }
-        // public int EquipoId { get; set; }
-        // public Equipo? Equipo { get; set; }
+        public string Posicion { get; set; } = string.Empty;
+        public int Dorsal { get; set; }
 
     }
 }
