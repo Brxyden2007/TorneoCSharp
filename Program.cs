@@ -50,7 +50,7 @@ while (!salir)
             Console.Clear();
             break;
         case 4:
-            // await new MenuEstadisticas(context).RenderMenu();
+            await new MenuEstadisticas(context).RenderMenu();
             Console.Clear();
             break;    
         case 5:
