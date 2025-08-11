@@ -3,7 +3,9 @@ using LigaTorneo.src.Modules.Torneos.Application.Services;
 using LigaTorneo.src.Modules.Torneos.UI;
 using LigaTorneo.src.Shared.Helpers;
 using TorneoCSharp.src.Modules.Equipos.UI;
+using TorneoCSharp.src.Modules.Estadisticas.UI;
 using TorneoCSharp.src.Modules.Jugadores.UI;
+using TorneoCSharp.src.Modules.Transferencias.UI;
 using TorneoCSharp.src.Shared.Helpers;
 
 var context = DbContextFactory.Create();
@@ -20,6 +22,8 @@ while (!salir)
     Console.WriteLine("\n --- Menu Principal ---");
     Console.WriteLine("0. Crear Torneo");
     Console.WriteLine("1. Registrar Equipo");
+    // Console.WriteLine("2. Registrar Cuerpo Tecnico");
+    // Console.WriteLine("3. Registrar Cuerpo Medico");
     Console.WriteLine("2. Registrar Jugador");
     Console.WriteLine("3. Transferencias");
     Console.WriteLine("4. Estadisticas");
@@ -31,16 +35,23 @@ while (!salir)
     {
         case 0:
             await new MenuTorneos(context).RenderMenu();
+            Console.Clear();
             break;
         case 1:
             await new MenuEquipos(context).RenderMenu();
+            Console.Clear();
             break;
         case 2:
             await new MenuJugadores(context).RenderMenu();
+            Console.Clear();
             break;
         case 3:
+            await new MenuTransferencias(context).RenderMenu();
+            Console.Clear();
             break;
         case 4:
+            // await new MenuEstadisticas(context).RenderMenu();
+            Console.Clear();
             break;    
         case 5:
             salir = true;

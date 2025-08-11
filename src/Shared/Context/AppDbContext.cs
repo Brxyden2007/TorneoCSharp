@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using LigaTorneo.src.Modules.Torneos.Domain.Entities;
 using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 using TorneoCSharp.src.Modules.Jugadores.Domain.Entities;
+using TorneoCSharp.src.Modules.Transferencias.Domain;
 namespace LigaTorneo.src.Shared.Context;
 
 public class AppDbContext : DbContext
@@ -16,6 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<Torneo> Torneos { get; set; } = null!;
     public DbSet<Equipo> Equipos { get; set; } = null!;
     public DbSet<Jugador> Jugadores { get; set; } = null!;
+    public DbSet<Transferencia> Transferencias { get; set; } = null!;
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

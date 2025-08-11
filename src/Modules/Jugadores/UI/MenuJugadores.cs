@@ -26,6 +26,7 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
             bool salir = false;
             while (!salir)
             {
+                Console.Clear();
                 Console.WriteLine("=== Menú de Jugadores ===");
                 Console.WriteLine("1. Registrar Jugador");
                 Console.WriteLine("2. Buscar Jugador");
@@ -53,6 +54,9 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
                         int dorsal = int.Parse(Console.ReadLine()!);
                         await service.RegistrarJugadorAsync(nombre, apellido, edad, pais, posicion, dorsal);
                         Console.WriteLine("Jugador registrado exitosamente.");
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
                     break;
                     case "2":
                         Console.Clear();
@@ -68,6 +72,9 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
                         {
                             Console.WriteLine("Jugador no encontrado.");
                         }
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case "3":
                         Console.Clear();
@@ -96,6 +103,9 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
                         {
                             Console.WriteLine("Jugador no encontrado.");
                         }
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case "4":
                         Console.Clear();
@@ -112,6 +122,9 @@ namespace TorneoCSharp.src.Modules.Jugadores.UI;
                         {
                             Console.WriteLine("Jugador no encontrado.");
                         }
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case "5":
                         Console.Clear();
