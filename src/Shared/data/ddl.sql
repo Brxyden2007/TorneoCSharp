@@ -14,9 +14,19 @@ CREATE TABLE torneos (
 CREATE TABLE equipos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
-    tipo VARCHAR(50) NOT NULL, -- Selección o Equipo Local
+    pais VARCHAR(50) NOT NULL,
+    fecha_creacion DATE NOT NULL,
     torneo_id INT NOT NULL,
     FOREIGN KEY (torneo_id) REFERENCES torneos(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- TABLA INTERMEDIA TORNEO-EQUIPO
+CREATE TABLE torneo_equipo (
+    torneo_id INT NOT NULL,
+    equipo_id INT NOT NULL,
+    PRIMARY KEY (torneo_id, equipo_id),
+    FOREIGN KEY (torneo_id) REFERENCES torneos(id) ON DELETE CASCADE,
+    FOREIGN KEY (equipo_id) REFERENCES equipos(id) ON DELETE CASCADE
 );
 
 -- JUGADORES

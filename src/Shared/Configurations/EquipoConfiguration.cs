@@ -25,6 +25,7 @@ namespace TorneoCSharp.src.Shared.Configurations
                 .HasMaxLength(50);
 
             builder.Property(e => e.FechaCreacion)
+                .HasColumnName("fecha_creacion")
                 .IsRequired()
                 .HasColumnType("date");
 

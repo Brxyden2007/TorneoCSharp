@@ -16,6 +16,8 @@ namespace TorneoCSharp.src.Modules.Jugadores.Domain.Entities
         public string Pais { get; set; } = string.Empty;
         public string Posicion { get; set; } = string.Empty;
         public int Dorsal { get; set; }
+        public int EquipoId { get; set; }
+        public Equipo? Equipo { get; set; }
 
     }
 }

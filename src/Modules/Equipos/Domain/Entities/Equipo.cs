@@ -15,13 +15,10 @@ public class Equipo
     public string Nombre { get; set; } = string.Empty;
     public DateTime FechaCreacion { get; set; }
     public string Pais { get; set; } = string.Empty;
-    // List<Torneo> Torneos { get; set; } = new List<Torneo>();
-    // List<Jugador> Jugadores { get; set; } = new List<Jugador>();
-    // Relación con Cuerpo Médico
     public ICollection<CuerpoTecnico> CuerposTecnicos { get; set; } = new List<CuerpoTecnico>();
     public ICollection<CuerpoMedico> CuerposMedicos { get; set; } = new List<CuerpoMedico>();
-    // public ICollection<Jugador> Jugadores { get; set; } = new List<Jugador>();
-    // CuerpoTecnico? CuerpoTecnico { get; set; }
+    public ICollection<Jugador> Jugadores { get; set; } = new List<Jugador>();
+    // public ICollection<EquipoTorneo> EquiposTorneos { get; set; } = new List<EquipoTorneo>();
 
-    
+
 }

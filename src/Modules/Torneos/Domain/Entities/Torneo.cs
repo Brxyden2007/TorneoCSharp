@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
+using TorneoCSharp.src.Modules.EquipoTorneo.Domain;
 
 namespace LigaTorneo.src.Modules.Torneos.Domain.Entities;
 
@@ -12,4 +13,5 @@ public class Torneo
     public string Nombre { get; set; } = string.Empty;
     public DateTime FechaInicio { get; set; }
     public DateTime FechaFin { get; set; }
+    public ICollection<EquipoTorneo> EquiposTorneos { get; set; } = new List<EquipoTorneo>();
 }

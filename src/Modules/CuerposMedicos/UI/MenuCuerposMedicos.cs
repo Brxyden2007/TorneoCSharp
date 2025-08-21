@@ -32,18 +32,23 @@ namespace LigaTorneo.src.Modules.CuerposMedicos.UI
                 switch (op)
                 {
                     case 1:
+                        Console.Clear();
                         await RegistrarCuerpoMedico();
                         break;
                     case 2:
+                        Console.Clear();
                         await ListarCuerposMedicos();
                         break;
                     case 3:
+                        Console.Clear();
                         await ActualizarCuerpoMedico();
                         break;
                     case 4:
+                        Console.Clear();
                         await EliminarCuerpoMedico();
                         break;
                     case 5:
+                        Console.Clear();
                         volver = true;
                         break;
                     default:
