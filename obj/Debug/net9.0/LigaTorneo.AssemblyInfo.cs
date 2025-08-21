@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LigaTorneo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19105cdf857e91f2cef21b85ac2315c50ac9aa81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+205e27b1057c659d7ddcacf7a6a315e2de20ce79")]
 [assembly: System.Reflection.AssemblyProductAttribute("LigaTorneo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LigaTorneo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
