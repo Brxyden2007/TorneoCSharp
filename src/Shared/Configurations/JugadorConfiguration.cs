@@ -13,7 +13,7 @@ public class JugadorConfiguration : IEntityTypeConfiguration<Jugador>
 {
     public void Configure(EntityTypeBuilder<Jugador> builder)
     {
-        builder.ToTable("jugador");
+        builder.ToTable("jugadores");
         builder.HasKey(j => j.Id);
         builder.Property(j => j.Nombre)
             .IsRequired()

@@ -12,7 +12,7 @@ namespace TorneoCSharp.src.Shared.Configurations
     {
         public void Configure(EntityTypeBuilder<Equipo> builder)
         {
-            builder.ToTable("equipo");
+            builder.ToTable("equipos");
 
             builder.HasKey(e => e.Id);
 
@@ -27,6 +27,18 @@ namespace TorneoCSharp.src.Shared.Configurations
             builder.Property(e => e.FechaCreacion)
                 .IsRequired()
                 .HasColumnType("date");
+
+            /*builder.HasOne(e => e.CuerpoMedico)
+                .WithMany()
+                .HasForeignKey(e => e.CuerpoMedicoId)
+                .HasColumnName("cuerpo_medico_id")
+                .OnDelete(DeleteBehavior.Cascade);
+                 // Configura la eliminación en cascada si se elimina el equipo
+            builder.HasOne(e => e.CuerpoTecnico)
+                .WithMany()
+                .HasForeignKey(e => e.CuerpoTecnicoId)
+                .HasColumnName("cuerpo_tecnico_id")
+                .OnDelete(DeleteBehavior.Cascade); // Configura la eliminación en cascada si se elimina el equipo*/
         }
     }
 }

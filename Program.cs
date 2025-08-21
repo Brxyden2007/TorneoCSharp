@@ -1,7 +1,10 @@
-﻿using LigaTorneo.src.Modules.Torneos.Application;
+﻿using LigaTorneo.src.Modules.CuerposMedicos.UI;
+using LigaTorneo.src.Modules.Torneos.Application;
 using LigaTorneo.src.Modules.Torneos.Application.Services;
 using LigaTorneo.src.Modules.Torneos.UI;
 using LigaTorneo.src.Shared.Helpers;
+
+using TorneoCSharp.src.Modules.CuerposTecnicos.UI;
 using TorneoCSharp.src.Modules.Equipos.UI;
 using TorneoCSharp.src.Modules.Estadisticas.UI;
 using TorneoCSharp.src.Modules.Jugadores.UI;
@@ -22,38 +25,55 @@ while (!salir)
     Console.WriteLine("\n --- Menu Principal ---");
     Console.WriteLine("0. Crear Torneo");
     Console.WriteLine("1. Registrar Equipo");
-    // Console.WriteLine("2. Registrar Cuerpo Tecnico");
-    // Console.WriteLine("3. Registrar Cuerpo Medico");
-    Console.WriteLine("2. Registrar Jugador");
-    Console.WriteLine("3. Transferencias");
-    Console.WriteLine("4. Estadisticas");
-    Console.WriteLine("5. Salir");
+    Console.WriteLine("2. Registrar Cuerpo Tecnico");
+    Console.WriteLine("3. Registrar Cuerpo Medico");
+    Console.WriteLine("4. Registrar Jugador");
+    Console.WriteLine("5. Transferencias");
+    Console.WriteLine("6. Estadisticas");
+    Console.WriteLine("7. Salir");
     Console.Write("Opcion: ");
     int opm = int.Parse(Console.ReadLine()!);
 
     switch (opm)
     {
         case 0:
+            Console.Clear();
             await new MenuTorneos(context).RenderMenu();
             Console.Clear();
             break;
         case 1:
+            Console.Clear();
             await new MenuEquipos(context).RenderMenu();
             Console.Clear();
             break;
-        case 2:
-            await new MenuJugadores(context).RenderMenu();
+
+        case 2: 
+            Console.Clear();
+            await new MenuCuerposTecnicos(context).RenderMenu();
             Console.Clear();
             break;
+
         case 3:
-            await new MenuTransferencias(context).RenderMenu();
+            Console.Clear();
+            await new MenuCuerposMedicos(context).RenderMenu();
             Console.Clear();
             break;
         case 4:
+            Console.Clear();
+            await new MenuJugadores(context).RenderMenu();
+            Console.Clear();
+            break;
+        case 5:
+            Console.Clear();
+            await new MenuTransferencias(context).RenderMenu();
+            Console.Clear();
+            break;
+        case 6:
+            Console.Clear();
             await new MenuEstadisticas(context).RenderMenu();
             Console.Clear();
             break;    
-        case 5:
+        case 7:
             salir = true;
             break;
         default:

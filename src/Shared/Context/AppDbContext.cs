@@ -8,6 +8,8 @@ using TorneoCSharp.src.Modules.Equipos.Domain.Entities;
 using TorneoCSharp.src.Modules.Jugadores.Domain.Entities;
 using TorneoCSharp.src.Modules.Transferencias.Domain;
 using TorneoCSharp.src.Modules.Estadisticas.Domain.Entities;
+using TorneoCSharp.src.Modules.CuerposTecnicos.Domain;
+using TorneoCSharp.src.Modules.CuerposMedicos.Domain;
 namespace LigaTorneo.src.Shared.Context;
 
 public class AppDbContext : DbContext
@@ -20,6 +22,11 @@ public class AppDbContext : DbContext
     public DbSet<Jugador> Jugadores { get; set; } = null!;
     public DbSet<Transferencia> Transferencias { get; set; } = null!;
     public DbSet<Estadistica> Estadisticas { get; set; } = null!;
+    public DbSet<CuerpoTecnico> CuerposTecnicos { get; set; }
+    public DbSet<CuerpoMedico> CuerposMedicos { get; set; }
+
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

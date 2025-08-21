@@ -13,7 +13,7 @@ public class TorneoConfiguration : IEntityTypeConfiguration<Torneo>
 
         public void Configure(EntityTypeBuilder<Torneo> builder)
         {
-                builder.ToTable("torneo");
+                builder.ToTable("torneos");
 
                 builder.HasKey(t => t.Id);
 
